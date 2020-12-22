@@ -3,8 +3,6 @@ import pandas as pd
 import numpy as np
 import pydeck as pdk
 import plotly.express as px
-import requests
-from io import StringIO
 
 
 DATE_TIME = "date/time"
@@ -16,7 +14,7 @@ st.markdown("This application is a dashboard that can be used "
 
 @st.cache(persist=True)
 def load_data(nrow):
-    data = pd.read_csv(DATA_URL, nrows=nrow)
+    data = pd.read_csv(DATA_URL, nrows=nrow, parse_dates=[['CRASH_DATE', 'CRASH_TIME']])
     data.dropna(subset=['LATITUDE', 'LONGITUDE'], inplace=True)
     lowercase = lambda x: str(x).lower()
     data.rename(lowercase, axis="columns", inplace=True)
