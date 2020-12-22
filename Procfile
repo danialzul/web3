@@ -1,1 +1,1 @@
-web: sh setup.sh && streamlit run demo_collision.py
+web: sh setup.sh && streamlit run learner_collision.py
