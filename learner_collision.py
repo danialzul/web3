@@ -7,9 +7,9 @@ import plotly.express as px
 
 DATA_URL = ("Motor_Vehicle_Collisions_-_Crashes.csv")
 
-st.title("Motor Vehicle Collisions in New York City")
-st.markdown("This application is a Streamlit dashboard that can be used "
-            "to analyze motor vehicle collisions in NYC 🗽💥🚗")
+st.title("Motor Vehicle Collisions in New York City,United States of America")
+st.markdown("This application is a dashboard that can be used "
+            "to analyze motor vehicle collisions in NewYork City 🗽💥🚗")
 
 @st.cache(persist=True)
 def load_data(nrows):
@@ -22,7 +22,7 @@ def load_data(nrows):
 
 data = load_data(100000)
 
-st.header("Where are the most people injured in NYC?")
+st.header("Where are the most people injured in New York City?")
 injured_people = st.slider("Number of persons injured in vehicle collisions", 0, 19)
 st.map(data.query("injured_persons >= @injured_people")[["latitude", "longitude"]].dropna(how="any"))
 
